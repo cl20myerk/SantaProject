@@ -1,73 +1,51 @@
 import java.util.*;
+import java.io.FileNotFoundException;
 import java.io.*;
 
 public class SantaProject
 {
-	public static void main(String[] args) throws IOException
+	public static void main(String[] args) throws FileNotFoundException
 	{
-		Scanner gifts = new Scanner(new FileReader("gifts.txt"));
-		Scanner kids = new Scanner(new FileReader("kids.txt"));
+		//Get scanner instance
+		Scanner r = new Scanner(new File("kids.txt"));
+		ArrayList<String> niceListName = new ArrayList<String>();//create an array to act as the nice list name only
+		ArrayList<String> niceListAge = new ArrayList<String>();//array list (parallel) for nice peoples names
+		ArrayList<String> bassProShop = new ArrayList<String>();// array list to just catch all the info so I can sort it
+		String name, naughtyNice;
+		int age;
 
-		List<String> gList = new ArrayList<String>();
-		List<String> kList = new ArrayList<String>();
+		//Set the delimiter used in file
+		r.useDelimiter(",");
 
-		String tmpG = "";
-		String tmpK = "";
-		String[] words = {""};
-
-		while(gifts.hasNext())
-		{
-			gList.add(gifts.nextLine());
+		while (r.hasNext()) {
+			//System.out.println (r.next());
+			bassProShop.add(r.next());
 
 		}
-		while(kids.hasNext())
-		{
-			tmpK = kids.nextLine();
-			tmpK = tmpK.replaceAll("," , "\t");
-			tmpK = tmpK.replaceAll(" ", "");
-			words = tmpK.split(" ");
-			for(String s: words)
-			{
-				kList.add(s);
+		r.close();// close scanner, just because
+
+		//prints out what net has to be sure
+
+		for (String elem : bassProShop) {
+			System.out.println(elem);
+		}
+
+
+		//searches throught the net to find nice people, adds their name and age to list
+		for (int x = 0; x < bassProShop.size(); x += 3) {
+			if (bassProShop.get(x + 1).equals(" nice")) {
+				niceListName.add(bassProShop.get(x));
+				niceListAge.add(bassProShop.get(x + 2));
 			}
 		}
-		for(int i = 0; i < kList.size(); i++)
-		{
-			if(kList.get(i).contains("naughty"))
-			{
-				kList.remove(i);
-			}
-		}
-		giftsInfo(gList);
-	}
-	public static void giftsInfo(List<String> gList) throws IOException
-	{
 
-		Scanner gifts = new Scanner(new FileReader("gifts.txt"));
+		// print out the nice list
+		for (String s : niceListName)
+			System.out.println (s);
 
-		List<String> name = new ArrayList<String>();
-		List<String> min = new ArrayList<String>();
-		List<String> max = new ArrayList<String>();
-		List<String> price = new ArrayList<String>();
-		List<String> days = new ArrayList<String>();
+		for (String e : niceListAge)
+			System.out.println (e);
 
 
-		int x = 0;
-
-		while(gifts.hasNext())
-		{
-			name.add(gifts.nextLine());
-			min.add(gifts.nextLine());
-			max.add(gifts.nextLine());
-			price.add(gifts.nextLine());
-			days.add(gifts.nextLine());
-
-			System.out.println(name.get(x));
-			System.out.println(min.get(x));
-			System.out.println(max.get(x));
-			System.out.println(price.get(x));
-			System.out.println(days.get(x));
-			x++;
-		}
-	}
+    }
 }
