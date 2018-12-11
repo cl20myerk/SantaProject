@@ -1,29 +1,19 @@
 public static void giftsInfo(List<String> gList) throws IOException
+{
+	Scanner gifts = new Scanner(new FileReader("gifts.txt"));
+
+	List<String> name = new ArrayList<String>();
+	List<String> min = new ArrayList<String>();
+	List<String> max = new ArrayList<String>();
+	List<String> price = new ArrayList<String>();
+	List<String> days = new ArrayList<String>();
+
+	while(gifts.hasNext())
 	{
-
-		Scanner gifts = new Scanner(new FileReader("gifts.txt"));
-
-		List<String> name = new ArrayList<String>();
-		List<String> min = new ArrayList<String>();
-		List<String> max = new ArrayList<String>();
-		List<String> price = new ArrayList<String>();
-		List<String> days = new ArrayList<String>();
-
-
-		int x = 0;
-
-		while(gifts.hasNext())
-		{
-			name.add(gifts.nextLine());
-			min.add(gifts.nextLine());
-			max.add(gifts.nextLine());
-			price.add(gifts.nextLine());
-			days.add(gifts.nextLine());
-
-			System.out.println(name.get(x));
-			System.out.println(min.get(x));
-			System.out.println(max.get(x));
-			System.out.println(price.get(x));
-			System.out.println(days.get(x));
-			x++;
-		}
+		name.add(gifts.nextLine());
+		min.add(gifts.nextLine());
+		max.add(gifts.nextLine());
+		price.add(gifts.nextLine());
+		days.add(gifts.nextLine());
+	}
+}
