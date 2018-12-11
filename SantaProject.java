@@ -3,13 +3,13 @@ import java.io.*;
 
 public class SantaProject
 {
-	static List<String> gList = new ArrayList<String>();
-	static List<String> kList = new ArrayList<String>();
-
 	public static void main(String[] args) throws IOException
 	{
 		Scanner gifts = new Scanner(new FileReader("gifts.txt"));
 		Scanner kids = new Scanner(new FileReader("kids.txt"));
+
+		List<String> gList = new ArrayList<String>();
+		List<String> kList = new ArrayList<String>();
 
 		String tmpG = "";
 		String tmpK = "";
@@ -17,8 +17,8 @@ public class SantaProject
 
 		while(gifts.hasNext())
 		{
-			tmpG = gifts.nextLine();
-			//System.out.println(tmpG);
+			gList.add(gifts.nextLine());
+
 		}
 		while(kids.hasNext())
 		{
@@ -29,7 +29,6 @@ public class SantaProject
 			for(String s: words)
 			{
 				kList.add(s);
-				//System.out.println(s);
 			}
 		}
 		for(int i = 0; i < kList.size(); i++)
@@ -39,15 +38,36 @@ public class SantaProject
 				kList.remove(i);
 			}
 		}
-		//System.out.println(kList);
-		giftsInfo();
+		giftsInfo(gList);
 	}
-	public static void giftsInfo()
+	public static void giftsInfo(List<String> gList) throws IOException
 	{
+
+		Scanner gifts = new Scanner(new FileReader("gifts.txt"));
+
 		List<String> name = new ArrayList<String>();
-		List<Integer> min = new ArrayList<Integer>();
-		List<Integer> max = new ArrayList<Integer>();
-		List<Integer> price = new ArrayList<Integer>();
-		List<Integer> days = new ArrayList<Integer>();
+		List<String> min = new ArrayList<String>();
+		List<String> max = new ArrayList<String>();
+		List<String> price = new ArrayList<String>();
+		List<String> days = new ArrayList<String>();
+
+
+		int x = 0;
+
+		while(gifts.hasNext())
+		{
+			name.add(gifts.nextLine());
+			min.add(gifts.nextLine());
+			max.add(gifts.nextLine());
+			price.add(gifts.nextLine());
+			days.add(gifts.nextLine());
+
+			System.out.println(name.get(x));
+			System.out.println(min.get(x));
+			System.out.println(max.get(x));
+			System.out.println(price.get(x));
+			System.out.println(days.get(x));
+			x++;
+		}
 	}
 }
