@@ -1,22 +1,9 @@
 import java.util.*;
 import java.io.*;
 
-public class Days
+public static void days() throws IOException
 {
-	public static void main (String[] args) throws IOException
-	{
-		Scanner gifts = new Scanner(new FileReader("gifts.txt"));
-		Scanner kids = new Scanner(new FileReader("kids.txt"));
-		Scanner reader = new Scanner(System.in);
-
-		List<String> gList = new ArrayList<String>();
-		List<String> kList = new ArrayList<String>();
-
-		String tmpG = "";
-		String tmpK = "";
-		String[] words = {""};
-
-		int choice;
+		int index = 0;
 
 		System.out.println("Pick a test number: ");
 		System.out.println("1)\tTest1");
@@ -29,30 +16,54 @@ public class Days
 		{
 			case 1:
 				System.out.println("We have 16 days to build the gifts, Santa!");
-				while (gifts.hasNext())
+
+				for(int i = 0; i <= days.size(); i++)
 				{
-					tmpG = gifts.nextLine();
-
+					int num = Integer.parseInt(days.get(i));
+					if(num < numDays)
+						index.add(i)
 				}
-
+				System.out.println(index);
 				break;
 			case 2:
 				System.out.println("We have 16 days to build the gifts, Santa!");
+
+				for(int i = 0; i <= days.size(); i++)
+					{
+						int num = Integer.parseInt(days.get(i));
+						if(num < numDays)
+							index.add(i)
+					}
+				System.out.println(index);
 
 				break;
 			case 3:
 				System.out.println("We have 5 days to build the gifts, Santa!");
 
+				for(int i = 0; i <= days.size(); i++)
+				{
+					int num = Integer.parseInt(days.get(i));
+					if(num < numDays)
+						index.add(i)
+				}
+				System.out.println(index);
+
 				break;
 			case 4:
 				System.out.println("We have 5 days to build the gifts, Santa!");
+
+				for(int i = 0; i <= days.size(); i++)
+				{
+					int num = Integer.parseInt(days.get(i));
+					if(num < numDays)
+						index.add(i)
+				}
+				System.out.println(index);
 
 				break;
 			default:
 				System.out.println("You didn't pick a viable test Santa!");
 				break;
 			}
-
-
 	}
 }
