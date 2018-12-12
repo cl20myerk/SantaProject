@@ -1,0 +1,117 @@
+import java.util.*;
+import java.io.*;
+
+public class SantaProject
+{
+	public static void main(String[] args) throws IOException
+	{
+		Scanner gifts = new Scanner(new FileReader("gifts.txt"));
+		Scanner kids = new Scanner(new FileReader("kids.txt"));
+
+		List<String> gList = new ArrayList<String>();
+		List<String> kList = new ArrayList<String>();
+		List<String> names = new ArrayList<String>();
+		List<String> ages = new ArrayList<String>();
+
+		String tmpG = "";
+		String tmpK = "";
+		String[] words = {""};
+
+		while(gifts.hasNext())
+		{
+			tmpG = gifts.nextLine();
+			//System.out.println(tmpG);
+		}
+		while(kids.hasNext())
+		{
+			tmpK = kids.nextLine();
+			tmpK = tmpK.replaceAll("," , "\t");
+			tmpK = tmpK.replaceAll(" ", "");
+			words = tmpK.split(" ");
+			int counter = 1;
+
+
+
+			for(String s: words)
+			{
+				kList.add(s);
+
+			/*	if (counter > 3)
+				{
+					counter = 1;
+				}
+				else if (counter == 1)
+				{
+					counter++;
+					names.add(s);
+				}
+				else if (counter == 2)
+				{
+					counter++;
+					continue;
+				}
+				else if (counter == 3)
+				{
+					counter++;
+					System.out.println("1");
+					ages.add(s);
+				}
+
+*/
+			}
+		}
+		for(int i = 0; i < kList.size(); i++)
+		{
+			if(kList.get(i).contains("naughty"))
+			{
+				kList.remove(i);
+			}
+		}
+		nameAgeSort();
+		//System.out.println(words);
+	}
+
+	public static void nameAgeSort() throws IOException
+	{
+		List<String> name = new ArrayList<String>();
+		List<String> junk = new ArrayList<String>();
+		List<String> ages = new ArrayList<String>();
+
+		String[] words = {""};
+
+		Scanner kids = new Scanner(new FileReader("kids.txt"));
+
+		while(kids.hasNext())
+		{
+			String tmpK = kids.nextLine();
+			tmpK = tmpK.replaceAll("," , "");
+			//tmpK = tmpK.replaceAll(" ", "");
+			words = tmpK.split(" ");
+			int counter = 1;
+			for(String s : words)
+			{
+				if (counter == 1)
+				{
+					name.add(s);
+				}
+				if (counter == 2)
+				{
+					junk.add(s);
+				}
+				if (counter == 3)
+				{
+					ages.add(s);
+				}
+				if (counter > 3)
+				{
+					counter = 1;
+				}
+				counter++;
+			}
+		}
+		System.out.println(name);
+		System.out.println(junk);
+		System.out.println(ages);
+	}
+
+}
