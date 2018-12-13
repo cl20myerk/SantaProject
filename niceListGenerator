@@ -1,0 +1,15 @@
+public static void niceListGenerator () throws IOException {
+		// scanner r with file declared as static or something in main
+		Scanner r = new Scanner(new File("kids.txt")).useDelimiter(",");
+		ArrayList<String> naughtyNice = new ArrayList<String>();// array list to just catch all the info so I can sort it
+		ArrayList<String> niceListName = new ArrayList<String>();// array list for names
+		while (r.hasNext()) {
+			String list = r.nextLine();// takes each line in, so it can be split into naughty and nice
+			if (list.contains("naughty")) {
+				naughtyNice.add(list);// we don't really need a naughty list, but I add naughty kids to it anyway
+			}
+			else {
+				niceListName.add(list);// add nice people to nice list
+			}
+		}
+}
