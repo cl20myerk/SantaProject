@@ -31,6 +31,11 @@
 			index.add(i);
 		}
 		System.out.println(index);
-
+		while(q != -1)
+		{
+			q = r.nextInt();
+			System.out.println(name.get(q));
+			System.out.println(price.get(q));
+		}
 	}
 }
