@@ -1,6 +1,6 @@
 # SantaProject
 
-Chris - Naughty Nice
+Chris - Naughty Nice / single-handedly coded the earth into existence
 
 Kyle - 
 
