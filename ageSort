@@ -1,0 +1,29 @@
+public static void ageSort()
+	{
+		List<Integer> par1 = new ArrayList<Integer>();
+		for(int q = 0; q < ages.size(); q++)
+		{
+			par1.add(Integer.parseInt(ages.get(q)));
+		}
+		int[] nums = new int[par1.size()];
+		int x = 0;
+		int age = 12;
+		int indCounter = 0;
+
+		while(age < 19)
+		{
+			for(int num: par1)
+			{
+				if(num == age)
+				{
+					nums[x] = indCounter;
+					x++;
+				}
+				indCounter++;
+			}
+			indCounter = 0;
+			age++;
+		}
+		for(int num: nums)
+			System.out.println(num);
+	}
