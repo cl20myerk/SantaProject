@@ -12,6 +12,7 @@ public class SantaMain
 	static List<String> max = new ArrayList<String>();
 	static List<String> price = new ArrayList<String>();
 	static List<String> days = new ArrayList<String>();
+	static List<Integer> index = new ArrayList<Integer>();
 
 	static ArrayList<String> naughtyNice = new ArrayList<String>();// array list to just catch all the info so I can sort it
 	static ArrayList<String> niceListName = new ArrayList<String>();// array list for names
@@ -76,75 +77,27 @@ public class SantaMain
 				niceListName.add(list);// add nice people to nice list
 			}
 		}
-	}/*
+	}
 	public static void days() throws IOException
 	{
-		int index = 0;
+		Scanner santa = new Scanner(System.in);
+		int numDays;
+		int num;
 
-		System.out.println("Pick a test number: ");
-		System.out.println("1)\tTest1");
-		System.out.println("2)\tTest2");
-		System.out.println("3)\tTest3");
-		System.out.println("4)\tTest4");
-		choice = reader.nextInt();
+		System.out.println("Santa, how many days do we have to build the gifts?");
+		numDays = santa.nextInt();
 
-		switch(choice)
+		for(int i = 0; i <= days.size(); i++)
 		{
-			case 1:
-				System.out.println("We have 16 days to build the gifts, Santa!");
-
-				for(int i = 0; i <= days.size(); i++)
-				{
-					int num = Integer.parseInt(days.get(i));
-					if(num < numDays)
-						index.add(i);
-				}
-				System.out.println(index);
-				break;
-			case 2:
-				System.out.println("We have 16 days to build the gifts, Santa!");
-
-				for(int i = 0; i <= days.size(); i++)
-				{
-					int num = Integer.parseInt(days.get(i));
-					if(num < numDays)
-						index.add(i);
-				}
-				System.out.println(index);
-
-				break;
-			case 3:
-				System.out.println("We have 5 days to build the gifts, Santa!");
-
-				for(int i = 0; i <= days.size(); i++)
-				{
-					int num = Integer.parseInt(days.get(i));
-					if(num < numDays)
-						index.add(i);
-				}
-				System.out.println(index);
-
-				break;
-
-			case 4:
-				System.out.println("We have 5 days to build the gifts, Santa!");
-
-				for(int i = 0; i <= days.size(); i++)
-				{
-					int num = Integer.parseInt(days.get(i));
-					if(num < numDays)
-						index.add(i);
-				}
-				System.out.println(index);
-
-				break;
-
-			default:
-				System.out.println("You didn't pick a viable test Santa!");
-				break;
+			num = Integer.parseInt(days.get(i));
+			if(num < numDays)
+			{
+				index.add(i);
 			}
+
 		}
-	}*/
+		System.out.println(index);
+	}
 	public static void budget() throws IOException
 	{
 		int amount = 0;
@@ -162,7 +115,7 @@ public class SantaMain
 			num2 = Integer.parseInt(price.get(j));
 			if(num2 < amount)
 			{
-				//index.add(j);
+				index.add(j);
 				num2++;
 
 			}
