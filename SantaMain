@@ -20,8 +20,8 @@ public class SantaMain
 	public static void main(String[] args)throws IOException
 	{
 		giftsInfo();
-		niceListGenerator();
 		budget();
+		niceListGenerator();
 	}
 	public static void giftsInfo() throws IOException
 	{
@@ -52,13 +52,7 @@ public class SantaMain
 			index.add(i);
 		}
 		System.out.println(index);
-		while(q != -1)
-		{
-			q = r.nextInt();
-			System.out.println(name.get(q));
-			System.out.println(price.get(q));
-		}
-
+		System.out.println(price);
 	}
 	public static void niceListGenerator() throws IOException
 	{
@@ -78,26 +72,7 @@ public class SantaMain
 			}
 		}
 	}
-	public static void days() throws IOException
-	{
-		Scanner santa = new Scanner(System.in);
-		int numDays;
-		int num;
 
-		System.out.println("Santa, how many days do we have to build the gifts?");
-		numDays = santa.nextInt();
-
-		for(int i = 0; i <= days.size(); i++)
-		{
-			num = Integer.parseInt(days.get(i));
-			if(num < numDays)
-			{
-				index.add(i);
-			}
-
-		}
-		System.out.println(index);
-	}
 	public static void budget() throws IOException
 	{
 		int amount = 0;
@@ -110,7 +85,7 @@ public class SantaMain
 
 		maxPrice = amount;
 
-		for(int j = 0; j <= price.size(); j++)
+		for(int j = 0; j < price.size(); j++)
 		{
 			num2 = Integer.parseInt(price.get(j));
 			if(num2 < amount)
