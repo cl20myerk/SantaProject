@@ -1,0 +1,30 @@
+public static void budget() throws IOException
+{
+
+	double input;
+	Scanner input = new Scanner(System.in);
+
+	System.out.println("What is the budget for the Christmas Gifts?");
+	input = input.nextInt();
+
+	for(double index = 0; index < input; index++)
+	{
+
+		Double.parseDouble(index.get(price));
+		double total = 0;
+		total += input;
+
+		if(total <= price)
+		{
+
+			total += price;
+
+		}
+
+		else
+			System.out.println("You have reached your budget!");
+	}
+}
+
+
+
